@@ -24,7 +24,7 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --noconfirm --windowed --onedir --name Complaint_Service_Hub main.py
+          pyinstaller --noconfirm --windowed --onedir --name LogMergeTool_NoExcel_Main.py
 
       - name: Copy config
         shell: cmd
