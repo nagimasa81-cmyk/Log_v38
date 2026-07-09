@@ -1,0 +1,24 @@
+name: 02_CREATE_UPDATE_ZIP_FROM_CURRENT_MASTER
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Command
+        shell: cmd
+        run: |
+          cd /d %~dp0
+      - name: Command
+        shell: cmd
+        run: |
+          powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path 'manifest.json','masters','templates','profiles' -DestinationPath 'master_update_current.zip' -Force"
+      - name: Command
+        shell: cmd
+        run: |
+          echo Created master_update_current.zip
